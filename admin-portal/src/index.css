@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-input {
+    @apply w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-600 transition duration-300 
+    focus:border-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-100;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-sm 
+    font-semibold text-white shadow-sm transition duration-300 hover:bg-primary-500 
+    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm 
+    font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition duration-300
+    hover:bg-gray-50;
+  }
+}
+
