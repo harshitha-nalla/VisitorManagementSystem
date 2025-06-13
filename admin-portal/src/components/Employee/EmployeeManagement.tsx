@@ -56,7 +56,23 @@ const EmployeeManagement: React.FC = () => {
     setError(null);
     setSuccess(null);
   };
-
+  const handleDelete = async(email:string)=>{
+    try{
+      await axios.delete(
+         `${import.meta.env.VITE_BACKEND_URL}/api/admin/employees/${email}`,
+          {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('adminToken')}`
+          }
+        }
+      );
+      setSuccess('Employee deleted successfully!');
+      fetchEmployees();
+    }
+    catch (err: any) {
+      setError(err.response?.data?.message || 'Failed to add employee');
+    }
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -232,10 +248,10 @@ const EmployeeManagement: React.FC = () => {
                   {employee.role}
                 </td>
                 <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium">
-                  <button className="text-primary-600 hover:text-primary-900 mr-4">
+                  {/* <button className="text-primary-600 hover:text-primary-900 mr-4">
                     <PencilIcon className="h-5 w-5" />
-                  </button>
-                  <button className="text-red-600 hover:text-red-900">
+                  </button> */}
+                  <button className="text-red-600 hover:text-red-900" onClick={()=>handleDelete(employee.email)}>
                     <TrashIcon className="h-5 w-5" />
                   </button>
                 </td>

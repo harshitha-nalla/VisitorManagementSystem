@@ -1,0 +1,11 @@
+admin-portal/node_modules
+admin-portal/.env
+
+security-guard-portal/node_modules
+security-guard-portal/.env
+
+employee-portal/node_modules
+employee-portal/.env
+
+backend/node_modules
+backend/.env

@@ -83,7 +83,7 @@ router.patch('/employees/:id', adminAuth, async (req, res) => {
 // Delete employee
 router.delete('/employees/:id', adminAuth, async (req, res) => {
   try {
-    const employee = await User.findByIdAndDelete(req.params.id);
+    const employee = await User.findOneAndDelete({email:req.params.id});
     
     if (!employee) {
       return res.status(404).json({ message: 'Employee not found' });
